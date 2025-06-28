@@ -1,0 +1,49 @@
+
+ <%- include("layout/header") %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Base Salary</th>
+      <th scope="col">PF</th>
+      <th scope="col">ESIC</th>
+      <th scope="col">Total Salary</th>
+      <th scope="col" colspan="3">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% allData.forEach((data, index) => { %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td>
+          <% if (data.gender === "male") { %>
+            Mr. <%= data.firstname %>
+          <% } else if (data.gender === "female") { %>
+            Mrs. <%= data.firstname %>
+          <% } else { %>
+            <%= data.firstname %>
+          <% } %>
+        </td>
+        <td><%= data.lastname %></td>
+        <td><%= data.email %></td>
+        <td><%= data.phonenumber %></td>
+        <td><%= data.gender %></td>
+        <td><%= data.basesalary %></td>
+        <td><%= data.pf %></td>
+        <td><%= data.esic %></td>
+        <td><%= data.totalSalary %></td>
+        <td><a href="/edit/<%= data._id %>">Edit</a></td>
+        <td><a href="/soft-delete/<%= data._id %>">Soft Delete</a></td>
+        <td><a href="/hard-delete/<%= data._id %>">Hard Delete</a></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include("layout/footer") %>

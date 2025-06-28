@@ -1,0 +1,46 @@
+<%-include("layout/header")%>
+<form action="submit-form" method="post">
+  <div class="mb-3">
+    <label class="form-label">First Name</label>
+    <input type="text" class="form-control" placeholder="first name" name="firstname">
+  </div>
+
+  <div class="mb-3">
+  <label class="form-label">Last Name</label>
+  <input type="text" class="form-control" placeholder="last name" name="lastname">
+</div>
+
+
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" placeholder="email" name="email">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">phone</label>
+    <input type="number" class="form-control" placeholder="phone number" name="phonenumber">
+  </div>
+
+
+  <div>
+  <label class="form-label">Select your gender</label>
+  <select name="gender" class="form-control">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+
+   <div class="mb-3">
+    <label class="form-label">base salary</label>
+    <input type="number" class="form-control" placeholder="base salery" name="basesalary">
+  </div>
+
+
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<%-include("layout/footer")%>
+
+
