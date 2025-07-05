@@ -1,5 +1,5 @@
 <%-include("layout/header")%>
-<form action="submit-form" method="post">
+<form action="submit-form" method="post" enctype="multipart/form-data">
   <div class="mb-3">
     <label class="form-label">First Name</label>
     <input type="text" class="form-control" placeholder="first name" name="firstname">
@@ -35,6 +35,16 @@
    <div class="mb-3">
     <label class="form-label">base salary</label>
     <input type="number" class="form-control" placeholder="base salery" name="basesalary">
+  </div>
+
+   <div class="mb-3">
+    <label class="form-label">Profile image</label>
+    <input type="file" class="form-control" name="profileImage">
+  </div>
+
+   <div class="mb-3">
+    <label class="form-label">Resume pdf only</label>
+    <input type="file" class="form-control" name="resume">
   </div>
 
 

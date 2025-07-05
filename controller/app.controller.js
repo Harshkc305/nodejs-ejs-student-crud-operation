@@ -13,48 +13,76 @@ class appcontroller{
         }
     }
 
+// -----------------------------------------------------------------
 
-    async submitform(req, res){
-        try{
-            // console.log("hello harsh")
+    // async submitform(req, res) {
+    //     try {
+    //         console.log(req.file, "req File");
 
-            // console.log(req.body,"req............body")
+    //         // Get the uploaded filename or set to empty
+    //         const profileImage = req.file ? req.file.filename : "";
 
-            const saveData= await EmpModel.create(req.body);
-            console.log(saveData, "save data...........")
-            res.redirect("/list")
+    //         // Save data including image filename
+    //         const saveData = await EmpModel.create({
+    //         ...req.body,
+    //         profileImage: profileImage
+    //         });
+
+    //         console.log(saveData, "save data...........");
+    //         res.redirect("/list");
+
+    //     } catch (err) {
+    //         throw err;
+    //     }
+    // }
+
+
+    // async submitform(req, res){
+    //     try{
+    //         // console.log("hello harsh")
+
+    //         // console.log(req.body,"req............body")
+
+    //         const profileImage =req.file.filename;
             
 
-        }catch (err){
-            throw err
-        }
-    }
+    //         console.log(req.file, "req File");
 
-    // async getlist(req, res){
-    //     try{
-    //         let allData= await EmpModel.find({isDeleted:false})
-    //         console.log(allData,"alldata data.......")
-    //         allData=allData.map((emp)=>{
-    //             const baseSalary=emp.basesalary;
-    //             const pf=baseSalary * 0.12;
-    //             const esic=baseSalary < 21000 ? baseSalary * 0.04 : 0;
-    //             const totalSalary=baseSalary - pf + esic;
+    //         const saveData= await EmpModel.create({...req.body,profileImage});
+    //         console.log(saveData, "save data...........")
+    //         res.redirect("/list")
+            
 
-    //             return{
-    //                 ...EmpModel._doc,
-    //                 pf: pf.toFixed(2),
-    //                 esic: esic.toFixed(2),
-    //                 totalSalary: totalSalary.toFixed(2)
-    //             }
-    //         });
-    //         res.render("list",{
-    //             allData,
-    //             title:"list page"
-    //         })
-    //     }catch(err){
+    //     }catch (err){
     //         throw err
     //     }
     // }
+
+
+async submitform(req, res) {
+  try {
+    const files = req.files || {};
+    const profileImage = files.profileImage ? files.profileImage[0].filename : "";
+    const resume = files.resume ? files.resume[0].filename : "";
+
+    const saveData = await EmpModel.create({
+      ...req.body,
+      profileImage,
+      resume
+    });
+
+    res.redirect("/list");
+  } catch (err) {
+    throw err;
+  }
+}
+
+
+
+
+
+// --------------------------------------------------------------------
+  
 
 
     async getlist(req, res) {

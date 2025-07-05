@@ -25,9 +25,17 @@ const EmpSchema= new mongoose.Schema({
         type: String,
         required: true
     },
-     isDeleted:{
+    isDeleted:{
         type: Boolean,
         default:false
+    },
+    profileImage:{
+        type: String,
+        default:""
+    },
+    resume:{
+        type: String,
+        default: ""
     }
 },{
     timestamps:true,
